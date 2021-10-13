@@ -1,4 +1,5 @@
-
+const Joi = require("joi")
+Joi.ObjectId = require("joi-objectid")(Joi);
 const winston = require("winston");
 require("dotenv").config()
 const express = require("express");

@@ -3,6 +3,8 @@ const Joi = require("joi")
 const Schema = mongoose.Schema
 const jwt = require("jsonwebtoken")
 const config = require("config")
+const JoiObjectId = require("joi-objectid")
+Joi.ObjectId= JoiObjectId(Joi);
 
 // the student Schema 
 const studentSchema = new Schema({
@@ -68,8 +70,12 @@ const studentSchema = new Schema({
 	isstudent: {
 		type: Boolean,
 		default: true
-	}
+	},
 	// link to the course schema
+	enroledcourses: [{
+		type: Schema.Types.ObjectId,
+		ref: "courses"
+	}]
 },
 {
 	timestamps: true
@@ -107,6 +113,7 @@ const validate = (student) => {
 		telephone: Joi.string().min(3).max(100).required(),
 		istuitor: Joi.boolean().required(),
 		password: Joi.string().min(6).max(100).required(),
+		enroledcourses: Joi.array().items(Joi.ObjectId()).required()
 	})
 
 	return schema.validate(student)
