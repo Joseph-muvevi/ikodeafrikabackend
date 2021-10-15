@@ -1,5 +1,5 @@
 Arguments: 
-  C:\Program Files\nodejs\node.exe C:\Program Files (x86)\Yarn\bin\yarn.js add joi-objectid2.0.0
+  C:\Program Files\nodejs\node.exe C:\Program Files (x86)\Yarn\bin\yarn.js add compression
 
 PATH: 
   C:\Program Files\Common Files\Oracle\Java\javapath;C:\Python39\Scripts\;C:\Python39\;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\ProgramData\chocolatey\bin;C:\Program Files\Docker\Docker\resources\bin;C:\ProgramData\DockerDesktop\version-bin;C:\Program Files\nodejs\;C:\Program Files (x86)\Yarn\bin\;C:\Users\jose\AppData\Local\Programs\Python\Python37\Scripts\;C:\Users\jose\AppData\Local\Programs\Python\Python37\;C:\Users\jose\AppData\Local\Microsoft\WindowsApps;C:\Users\jose\AppData\Local\Programs\Microsoft VS Code\bin;C:\Program Files\heroku\bin;C:\Users\jose\AppData\Roaming\npm;C:\Users\jose\AppData\Local\Yarn\bin
@@ -14,17 +14,7 @@ Platform:
   win32 x64
 
 Trace: 
-  Error: https://registry.yarnpkg.com/joi-objectid2.0.0: Not found
-      at Request.params.callback [as _callback] (C:\Program Files (x86)\Yarn\lib\cli.js:66097:18)
-      at Request.self.callback (C:\Program Files (x86)\Yarn\lib\cli.js:140749:22)
-      at Request.emit (events.js:400:28)
-      at Request.<anonymous> (C:\Program Files (x86)\Yarn\lib\cli.js:141721:10)
-      at Request.emit (events.js:400:28)
-      at IncomingMessage.<anonymous> (C:\Program Files (x86)\Yarn\lib\cli.js:141643:12)
-      at Object.onceWrapper (events.js:519:28)
-      at IncomingMessage.emit (events.js:412:35)
-      at endReadableNT (internal/streams/readable.js:1317:12)
-      at processTicksAndRejections (internal/process/task_queues.js:82:21)
+  Error: ENOENT: no such file or directory, copyfile 'C:\Users\jose\AppData\Local\Yarn\Cache\v6\npm-debug-4.3.2-f0a49c18ac8779e31d4a0c6029dfb76873c7428b-integrity\node_modules\debug\README.md' -> 'D:\Programing projects\2021\ikodeafrika\ikodeafrikabackend\node_modules\@babel\core\node_modules\debug\README.md'
 
 npm manifest: 
   {
@@ -44,8 +34,9 @@ npm manifest:
   		"express": "^4.17.1",
   		"express-async-errors": "^3.1.1",
   		"fawn": "^2.1.5",
+  		"helmet": "^4.6.0",
   		"joi": "^17.4.2",
-  		"joi-objectid": "^4.0.2",
+  		"joi-objectid": "4.0.2",
   		"jsonwebtoken": "^8.5.1",
   		"lodash": "^4.17.21",
   		"moment": "^2.29.1",
@@ -1958,6 +1949,11 @@ Lockfile:
     dependencies:
       function-bind "^1.1.1"
   
+  helmet@^4.6.0:
+    version "4.6.0"
+    resolved "https://registry.yarnpkg.com/helmet/-/helmet-4.6.0.tgz#579971196ba93c5978eb019e4e8ec0e50076b4df"
+    integrity sha512-HVqALKZlR95ROkrnesdhbbZJFi/rIVSoNq6f3jA/9u6MIbTsPh3xZwihjeI5+DO/2sOV6HMHooXcEOuwskHpTg==
+  
   hooks-fixed@2.0.0:
     version "2.0.0"
     resolved "https://registry.yarnpkg.com/hooks-fixed/-/hooks-fixed-2.0.0.tgz#a01d894d52ac7f6599bbb1f63dfc9c411df70cba"
@@ -2674,7 +2670,7 @@ Lockfile:
       import-local "^3.0.2"
       jest-cli "^27.2.5"
   
-  joi-objectid@^4.0.2:
+  joi-objectid@4.0.2:
     version "4.0.2"
     resolved "https://registry.yarnpkg.com/joi-objectid/-/joi-objectid-4.0.2.tgz#a4065aa91431bbc6959a57f7b4d1dd10bd95a4b7"
     integrity sha512-OjYM+wK/JGo2bSb9ADEyzxxROJPZYtrqIwBbywpJ2a98oKlbLtWTKvpzmrnXzou69Ey9EsjHsFvZYzpjeCdKuA==

@@ -14,6 +14,7 @@ require("./startup/routes")(app);
 connection();
 require("./startup/config")();
 require("./startup/validation")();
+require("./startup/production")(app);
 
 
 const port = process.env.PORT || 8000;
