@@ -10,6 +10,11 @@ const habitSchema = new Schema({
 		maxLength: 100,
 		required: true
 	}, 
+	student: {
+		type: mongoose.Schema.Types.ObjectId,
+		ref: "students",
+		required: true
+	},
 	habitDescription: {
 		type: String,
 		minLength: 40,
@@ -43,6 +48,7 @@ const Habit = mongoose.model("habits", habitSchema)
 const validate = (habit) => {
 	const schema = Joi.object({
 		title: Joi.string().min(5).max(100).required(),
+		student: Joi.objectId().required(),
 		habitDescription: Joi.string().min(40).max(500).required(),
 		difficulty: Joi.number().min(1).max(5).required(),
 		repeat: Joi.string().min(5).max(100).required(),

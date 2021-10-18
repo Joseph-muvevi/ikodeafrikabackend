@@ -44,8 +44,21 @@ const assignmentSchema = new Schema({
 		type: Boolean,
 		required: true
 	},
+	steps: {
+		type: Array,
+		required: true,
+		min: 5,
+		max: 1500
+	},
 	tags: {
 		type: Array,
+		required: true,
+		min: 2, 
+		max: 10
+	},
+	tuitor: {
+		type: mongoose.Schema.Types.ObjectId,
+		ref: "tuitors",
 		required: true,
 		min: 2, 
 		max: 10
@@ -70,8 +83,10 @@ const validate = (assignment) => {
 		difficulty: Joi.number().min(1).max(5),
 		category: Joi.string().min(3).max(100).required(),
 		deadline: Joi.string().min(3).max(100).required(),
+		steps: Joi.array().min(3).max(1500).required(),
 		isFormal: Joi.boolean().required(),
 		tags: Joi.array().min(2).max(10).required(),
+		tuitor: Joi.objectId().required()
 	})
 
 	return schema.validate(assignment)

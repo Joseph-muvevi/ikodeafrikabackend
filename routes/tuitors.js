@@ -10,6 +10,13 @@ router.get("/me", auth, async (req, res) => {
 	res.send(tuitor);
 });
 
+router.get("/", async (req, res) => {
+	const course = await Tuitor.find()
+		.select("-__v")
+		.sort("name");
+	res.send(course);
+});
+
 router.post("/", async (req, res) => {
 	const { error } = validate(req.body);
 	if (error) return res.status(400).send(error.details[0].message);
@@ -25,7 +32,7 @@ router.post("/", async (req, res) => {
 	const token = tuitor.generateAuthToken();
 	res
 	.header("x-auth-token", token)
-	.send(_.pick(tuitor, ["_id", "name", "email"]));
+	.send(_.pick(tuitor, ["_id", "firstname", "email"]));
 });
 
 // update
@@ -38,9 +45,9 @@ router.put("/:id", async (req, res) => {
 	if (!email) return res.status(404).send("Invalid email");
 
 	const tuitor = await Tuitor.findByIdAndUpdate(
-	req.params.id,
-	{ $set: req.body },
-	{ new: true }
+		req.params.id,
+		{ $set: req.body },
+		{ new: true }
 	);
 
 	// hashing the passwords
