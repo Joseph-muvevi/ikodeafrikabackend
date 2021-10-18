@@ -18,6 +18,7 @@ require("./startup/production")(app);
 
 
 const port = process.env.PORT || 8000;
+console.log(process.env.DB)
 const server = app.listen(port, () =>
     winston.info(`Listening on port ${port}...`)
 );
