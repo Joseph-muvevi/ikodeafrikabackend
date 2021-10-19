@@ -9,7 +9,8 @@ const router = express.Router();
 router.get("/", async (req, res) => {
 	const course = await Course.find()
 		.select("-__v")
-		.sort("name");
+		.sort("name")
+		.populate("tuitor", "firstname picture email -_id")
 	res.send(course);
 });
 
