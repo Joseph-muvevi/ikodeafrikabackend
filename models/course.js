@@ -43,12 +43,6 @@ const courseSchema = new Schema({
 		max: 10,
 		required: true
 	},
-	ratings: {
-		type: Number,
-		min: 1,
-		max: 5,
-		required: true
-	},
 	// ratings, enroled
 	date: {
 		type: Date,
@@ -70,7 +64,6 @@ const validate = (flag) => {
 		subject: Joi.string().min(5).max(100).required(),
 		units: Joi.array().min(1).max(20).required(),
 		tags: Joi.array().min(1).max(10).required(),
-		ratings: Joi.number().min(1).max(5).required(),
 		tuitor: Joi.objectId().required()
 	})
 

@@ -75,6 +75,10 @@ const studentSchema = new Schema({
 	enroledcourses: [{
 		type: Schema.Types.ObjectId,
 		ref: "courses"
+	}],
+	tasks: [{
+		type: Schema.Types.ObjectId,
+		ref: "tasks"
 	}]
 },
 {
@@ -89,7 +93,9 @@ studentSchema.methods.generateAuthToken = function() {
 		_id: this._id,
 		name: this.name,
 		email: this.email,
-		isstudent: this.isstudent
+		isstudent: this.isstudent,
+		enroledcourses: this.enroledcourses,
+		tasks: this.tasks
 	  },
 	  config.get("jwtPrivateKey")
 	);
@@ -113,7 +119,8 @@ const validate = (student) => {
 		telephone: Joi.string().min(3).max(100).required(),
 		istuitor: Joi.boolean().required(),
 		password: Joi.string().min(6).max(100).required(),
-		enroledcourses: Joi.array().items(Joi.ObjectId()).required()
+		enroledcourses: Joi.array().items(Joi.ObjectId()).required(),
+		tasks: Joi.array().items(Joi.ObjectId()).required()
 	})
 
 	return schema.validate(student)
